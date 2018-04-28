@@ -9,6 +9,7 @@ local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
+--local brightness = require("brightness")
 
 local string = string
 local os = { getenv = os.getenv }
@@ -18,7 +19,7 @@ local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
-theme.font                                      = "Roboto Bold 10"
+theme.font                                      = "Roboto Condensed Regular 10"
 theme.taglist_font                              = "Roboto Condensed Regular 8"
 theme.fg_normal                                 = "#FFFFFF"
 theme.fg_focus                                  = "#0099CC"
@@ -106,6 +107,7 @@ mytextclock.font = theme.font
 local clock_icon = wibox.widget.imagebox(theme.clock)
 local clockbg = wibox.container.background(mytextclock, theme.bg_focus, gears.shape.rectangle)
 local clockwidget = wibox.container.margin(clockbg, 0, 3, 5, 5)
+--brightness_ctrl = brightness({})
 
 -- Calendar
 local mytextcalendar = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF", space3 .. "%d %b " .. markup.font("Roboto 5", " ")))
@@ -201,7 +203,7 @@ function ()
 end)))
 
 -- Battery
---[[
+
 local bat = lain.widget.bat({
     settings = function()
         bat_header = " Bat "
@@ -212,11 +214,12 @@ local bat = lain.widget.bat({
         widget:set_markup(markup.font(theme.font, markup(blue, bat_header) .. bat_p))
     end
 })
---]]
+
 
 --  fs
 theme.fs = lain.widget.fs({
-    notification_preset = { bg = theme.bg_normal, font = "Monospace 9" },
+    options = "--exclude-type=tmpfs",
+    notification_preset = { bg = theme.bg_normal, font = "Monospace 9, " },
 })
 
 -- ALSA volume bar
@@ -338,7 +341,6 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             --mail.widget,
-            --bat.widget,
             spr_right,
             musicwidget,
             bar,
@@ -374,6 +376,7 @@ function theme.at_screen_connect(s)
             networkwidget,
             netup_icon,
             bottom_bar,
+            bat.widget,
             cpu_icon,
             cpuwidget,
             bottom_bar,
