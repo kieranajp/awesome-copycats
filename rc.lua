@@ -82,7 +82,7 @@ local browser      = "google-chrome-stable"
 local scrlocker    = "~/.config/awesome/locker.sh"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
