@@ -6,9 +6,10 @@ D='#ff00ffcc'  # default
 T='#ee00eeee'  # text
 W='#880000bb'  # wrong
 V='#bb00bbbb'  # verifying
-N='000070'
+N='2b303b'     # background (spacegrey)
 
 i3lock \
+--color $N            \
 --insidevercolor=$C   \
 --ringvercolor=$V     \
 \
@@ -30,7 +31,6 @@ i3lock \
 \
 --screen 1            \
 #--blur 4              \
--c $N                 \
 --clock               \
 --indicator           \
 --timestr="%H:%M:%S"  \
