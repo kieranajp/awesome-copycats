@@ -79,7 +79,7 @@ local altkey       = "Mod1"
 local terminal     = "konsole"
 local editor       = os.getenv("EDITOR") or "vim"
 local browser      = "google-chrome-stable"
-local scrlocker    = "~/.config/awesome/locker.sh"
+local scrlocker    = "betterlockscreen -l"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
