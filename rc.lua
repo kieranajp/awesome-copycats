@@ -297,9 +297,9 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
 
-    awful.key({ modkey }, "d", function() os.execute("$HOME/monitor.sh") end,
+    awful.key({ modkey }, "d", function() os.execute("$HOME/.config/awesome/monitor.sh") end,
               {description = "autodetect monitors", group = "screen"}),
-    awful.key({ modkey, altkey }, "d", function() os.execute("$HOME/monitor.sh -d") end,
+    awful.key({ modkey, altkey }, "d", function() os.execute("$HOME/.config/awesome/monitor.sh -d") end,
               {description = "use built-in monitor", group = "screen"}),
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
